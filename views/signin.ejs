@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library Login Page</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .flex_center {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        .main-wrapper {
+            height: 100vh;
+            width: 100vw;
+            border: 2px solid black;
+        }
+        .login-window-wrapper {
+            border: 2px solid black; 
+            height: 300px;
+            width: 1000px;
+        }
+        .login-form-wrapper {
+            height: 150px;
+            justify-content: space-around;
+            text-align: center;
+        }
+        .input-box {
+            width: 300px;
+            height: 20px;
+            padding:5px;
+            margin:5px;
+        }
+        .input-submit {
+            width: 100px;
+            height: 40px;
+            padding: 10px;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="main-wrapper flex_center">
+        <div class="login-window-wrapper flex_center">
+            <h1>Please login</h1>
+            <div class="login-form-wrapper flex_center">
+                <form action="/login" method="post">
+                    <div class=""><label for="">Username</label><input class="input-box" type="email" id="usernameInput" name="email"></div>
+                    <div class=""><label for="">Password</label><input class="input-box" type="password" id="passwordInput" name="password"></div>
+                    <div class=""><input class="input-submit" type="submit" value="Login"></div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

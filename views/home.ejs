@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Books library management app</title>
+    <style>
+        
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        td,
+        th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #dddddd;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main-wrapper">
+
+        <div class="books-shower-wrapper">
+            <div class="header-wrapper">
+                <h1>Available books</h1>
+            </div>
+            <div class="table-shower-wrapper">
+                <table>
+                    <tr>
+                        <th>Book ID</th>
+                        <th>Book Name</th>
+                        <th>Book Author</th>
+                        <th>Release Date</th>
+                        <th>Amount</th>
+                        <th>Delete book</th>
+                    </tr>
+                    <% books.forEach(book=> { %>
+                        <tr>
+                            <td>
+                                <%= book.id %>
+                            </td>
+                            <td>
+                                <%= book.bookname %>
+                            </td>
+                            <td>
+                                <%= book.author %>
+                            </td>
+                            <td>
+                                <%= book.releasedate %>
+                            </td>
+                            <td>
+                                <%= book.amount %>
+                            </td>
+                            <td>
+                                <form action="/library/" method="post" class="test-form">
+                                    <input type="text" style="display: none;" 
+                                        name="id" 
+                                        value="<%= book.id %>"> 
+                                        <button type="submit">Delete</button> 
+                                </form>
+                            </td>
+                        </tr>
+                        <% })%>
+                </table>
+            </div>
+        </div>
+        <div class="books-adder-wrapper">
+            <div class="add-book-header-wrapper">
+                <h1>Add books</h1>
+            </div>
+            <div class="table-shower-wrapper">
+                <table>
+                    <tr>
+                        <th>Book Name</th>
+                        <th>Book Author</th>
+                        <th>Release Date</th>
+                        <th>Amount</th>
+                        <th>Action</th>
+                    </tr>
+                        <tr>
+                            <form action="/library/book/create" method="post">
+                                <td>
+                                    <input type="text" name="bookname" placeholder="Book Name">
+                                </td>
+                                <td>
+                                    <input type="text" name="author" placeholder="Book Author">
+                                </td>
+                                <td>
+                                    <input type="date" name="releasedate" placeholder="Release Date">
+                                </td>
+                                <td>
+                                    <input type="number" name="amount" placeholder="Amount">
+                                </td>
+                                <td>
+                                    <input type="submit" value="Create">
+                                </td>
+                            </form>
+                        </tr>
+                </table>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+
+<script src="../scripts/script.js"></script>
+</html>
